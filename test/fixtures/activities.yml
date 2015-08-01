@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  address_start: MyString
+  address_end: MyString
+  latitude: 1.5
+  longitude: 1.5
+  lat_end: 1.5
+  long_end: 1.5
+  distance: 1.5
+  date: 2015-08-01 20:19:01
+
+two:
+  address_start: MyString
+  address_end: MyString
+  latitude: 1.5
+  longitude: 1.5
+  lat_end: 1.5
+  long_end: 1.5
+  distance: 1.5
+  date: 2015-08-01 20:19:01

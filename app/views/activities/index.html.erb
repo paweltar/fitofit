@@ -1,0 +1,61 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Your Stats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total dist. [km]</th>
+      <th>Total dist. this year [km]</th>
+      <th>Total dist. this month [km]</th>
+      <th>Total dist. this week [km]</th>
+      <th>Total dist. today [km]</th>
+      <th>Average dist. [km]</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr>
+        <td><%= @activities.sum(:distance).round(2) %></td>
+        <td><%= @activities.where(date: Time.zone.now.all_year).sum(:distance).round(2) %></td>
+        <td><%= @activities.where(date: Time.zone.now.all_month).sum(:distance).round(2) %></td>
+        <td><%= @activities.where(date: Time.zone.now.all_week).sum(:distance).round(2) %></td>
+        <td><%= @activities.where(date: Time.zone.now.all_day).sum(:distance).round(2) %></td>
+        <td><%= @activities.average(:distance).round(2) %></td>
+      </tr>
+  </tbody>
+</table>
+<br>
+<%= link_to 'New Activity', new_activity_path %>
+<br>
+
+<h1>Listing Activities by date</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address start</th>
+      <th>Address end</th>
+      <th>Distance [km]</th>
+      <th>Date</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @activities.order("date DESC").each do |activity| %>
+      <tr>
+        <td><%= activity.address_start %></td>
+        <td><%= activity.address_end %></td>
+        <td><%= activity.distance.round(2) %></td>
+        <td><%= activity.date %></td>
+        <td><%= link_to 'Show', activity %></td>
+        <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+        <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Address start:</strong>
+  <%= @activity.address_start %>
+</p>
+
+<p>
+  <strong>Address end:</strong>
+  <%= @activity.address_end %>
+</p>
+
+<p>
+  <strong>Distance:</strong>
+  <%= @activity.distance.round(2) %> km.
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @activity.date %>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>
