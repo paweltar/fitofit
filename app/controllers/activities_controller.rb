@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities.json
   def index
     @activities = Activity.all
+    @last_month_act = @activities.where(date: Time.zone.now.all_month)
   end
 
   # GET /activities/1

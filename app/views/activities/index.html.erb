@@ -2,14 +2,35 @@
 <p id="notice"><%= notice %></p>
 
 <div class="small-9 large-centered columns">
+<h1>Total distance from each day of current month</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Day</th>
+      <th>Total daily dist. [km]</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @last_month_act.group_by{|l| l.date.day}.each do |day, activities| %>
+      <tr> 
+        <td><%= day %> </td>
+        <td><%= activities.sum(&:distance).round(2)%> km.</td>
+        <% end %>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+
+<div class="small-9 large-centered columns">
   <h1>Calendar</h1>
 
-<%= month_calendar events: @activities do |date, activities| %>
+<%= month_calendar table: {class: "calendar"}, tr: {class: "calendar-row"}, td: {class: "day"}, events: @activities do |date, activities| %>
   <%= date %>
 
   <% activities.each do |activity| %>
     <div>
-      <p class="success round label"><%= activity.distance.round(2) %> [km]</p> 
+      <p class="success round label"><%= activity.distance.round(2) %> [km]</p>  
     </div>
   <% end %>
 <% end %>
