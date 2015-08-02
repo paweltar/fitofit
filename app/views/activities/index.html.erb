@@ -66,7 +66,7 @@
         <td><%= activity.address_start %></td>
         <td><%= activity.address_end %></td>
         <td><%= activity.distance.round(2) %></td>
-        <td><%= activity.date %></td>
+        <td><%= activity.date.to_formatted_s(:long) %></td>
         <td><%= link_to 'Show', activity %></td>
         <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
         <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
