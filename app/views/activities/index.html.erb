@@ -1,6 +1,8 @@
+
 <p id="notice"><%= notice %></p>
 
-<h1>Calendar</h1>
+<div class="small-9 large-centered columns">
+  <h1>Calendar</h1>
 
 <%= month_calendar events: @activities do |date, activities| %>
   <%= date %>
@@ -11,8 +13,10 @@
     </div>
   <% end %>
 <% end %>
+</div>
 
-<h1>Your Stats</h1>
+<div class="small-9 large-centered columns">
+  <h1>Your Stats</h1>
 
 <table>
   <thead>
@@ -38,10 +42,12 @@
   </tbody>
 </table>
 <br>
-<%= link_to 'New Activity', new_activity_path %>
+<%= link_to 'New Activity', new_activity_path, class: "button success" %>
 <br>
+</div>
 
-<h1>Listing Activities by date</h1>
+<div class="small-9 large-centered columns">
+  <h1>Listing Activities by date</h1>
 
 <table>
   <thead>
@@ -69,5 +75,9 @@
   </tbody>
 </table>
 
-<br>
+<br>  
+</div>
+
+
+
 
