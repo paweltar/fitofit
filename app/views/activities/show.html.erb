@@ -1,24 +1,9 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Address start:</strong>
-  <%= @activity.address_start %>
-</p>
-
-<p>
-  <strong>Address end:</strong>
-  <%= @activity.address_end %>
-</p>
-
-<p>
-  <strong>Distance:</strong>
-  <%= @activity.distance.round(2) %> km.
-</p>
-
-<p>
-  <strong>Date:</strong>
-  <%= @activity.date %>
-</p>
-
-<%= link_to 'Edit', edit_activity_path(@activity) %> |
-<%= link_to 'Back', activities_path %>
+<div class="small-9 large-centered columns">
+  <ul class="pricing-table">
+    <li class="title"><%= @activity.address_start %> to <%= @activity.address_end %></li>
+    <li class="price"><%= @activity.distance.round(2) %> km.</li>
+    <li class="description"><%= @activity.date.to_formatted_s(:long) %></li>
+    <li class="cta-button"><%= link_to 'Stats', activities_path, class: "success button" %></li>
+  </ul>
+</div>
