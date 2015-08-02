@@ -9,7 +9,7 @@
 
   <% activities.each do |activity| %>
     <div>
-      <%= activity.distance.round(2) %> [km]
+      <p class="success round label"><%= activity.distance.round(2) %> [km]</p> 
     </div>
   <% end %>
 <% end %>
