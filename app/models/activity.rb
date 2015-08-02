@@ -1,4 +1,7 @@
 class Activity < ActiveRecord::Base
+	extend SimpleCalendar
+	has_calendar :attribute => :date
+
 validates :address_start,  presence: true
 validates :address_end, presence: true
 

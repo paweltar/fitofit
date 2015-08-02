@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Calendar</h1>
+
+<%= month_calendar events: @activities do |date, activities| %>
+  <%= date %>
+
+  <% activities.each do |activity| %>
+    <div>
+      <%= activity.distance.round(2) %> [km]
+    </div>
+  <% end %>
+<% end %>
+
 <h1>Your Stats</h1>
 
 <table>
